@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroCrackz - Elite Minecraft Cracks</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #080808;
+            color: #f0f0f0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .logo {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            width: 90px;
+            z-index: 10;
+            filter: drop-shadow(0 0 15px rgba(155, 89, 182, 0.8));
+        }
+        .header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(155, 89, 182, 0.2), transparent 50%);
+            animation: glow 5s infinite ease-in-out;
+        }
+        @keyframes glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        .title {
+            font-size: 100px;
+            background: linear-gradient(135deg, #8e44ad, #1abc9c);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(155, 89, 182, 0.9);
+            opacity: 0;
+            animation: slideUp 1.2s ease forwards;
+        }
+        .desc {
+            font-size: 26px;
+            letter-spacing: 3px;
+            opacity: 0;
+            animation: slideUp 1.2s 0.4s ease forwards;
+            color: #d0d0d0;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(70px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn {
+            padding: 20px 70px;
+            background: linear-gradient(135deg, #8e44ad, #1abc9c);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 24px;
+            margin-top: 40px;
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.7);
+            transition: all 0.4s ease;
+            animation: bounceIn 1.5s 0.8s ease forwards;
+            opacity: 0;
+        }
+        .btn:hover {
+            box-shadow: 0 0 50px rgba(26, 188, 156, 0.9);
+            transform: translateY(-5px) scale(1.02);
+        }
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.7); }
+            60% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .clients {
+            padding: 120px 70px;
+            background: rgba(12, 12, 12, 0.95);
+        }
+        .client {
+            display: flex;
+            align-items: center;
+            margin: 80px 0;
+            opacity: 0;
+            animation: fadeInLeft 1s ease forwards;
+        }
+        .client:nth-child(1) { animation-delay: 0.2s; }
+        .client:nth-child(2) { animation-delay: 0.4s; }
+        .client:nth-child(3) { animation-delay: 0.6s; }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-150px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+		.client img {
+            max-width: 300px; 
+            height: auto; 
+            margin-right: 60px;
+            border-radius: 25px;
+            box-shadow: 0 0 35px rgba(155, 89, 182, 0.6);
+            transition: all 0.4s ease;
+        }
+        .client img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 45px rgba(26, 188, 156, 0.8);
+        }
+        .client-text h2 {
+            font-size: 48px;
+            background: linear-gradient(135deg, #8e44ad, #1abc9c);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+        }
+        .client-text p {
+            font-size: 22px;
+            color: #c0c0c0;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .advantages {
+            padding: 120px 70px;
+            background: rgba(12, 12, 12, 0.95);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .adv-item {
+            width: 340px;
+            margin: 25px;
+            padding: 35px;
+            text-align: center;
+            border: 2px solid rgba(155, 89, 182, 0.6);
+            border-radius: 20px;
+            background: rgba(155, 89, 182, 0.05);
+            box-shadow: 0 0 25px rgba(155, 89, 182, 0.4);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            transition: all 0.4s ease;
+        }
+        .adv-item:nth-child(1) { animation-delay: 0.2s; }
+        .adv-item:nth-child(2) { animation-delay: 0.4s; }
+        .adv-item:nth-child(3) { animation-delay: 0.6s; }
+        .adv-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(26, 188, 156, 0.7);
+            border-color: rgba(26, 188, 156, 0.8);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .adv-emoji {
+            font-size: 50px;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+        .adv-text h3 {
+            font-size: 28px;
+            background: linear-gradient(135deg, #8e44ad, #1abc9c);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+        }
+        .adv-text p {
+            font-size: 18px;
+            color: #c0c0c0;
+            margin-top: 20px;
+        }
+        .footer {
+            padding: 50px 70px;
+            background: rgba(10, 10, 10, 0.95);
+            text-align: center;
+            border-top: 1px solid rgba(155, 89, 182, 0.3);
+        }
+        .footer p {
+            font-size: 16px;
+            color: #a0a0a0;
+            margin: 0;
+        }
+        .footer a {
+            color: #1abc9c;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer a:hover {
+            color: #8e44ad;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/ZeroTiss/refs/heads/main/logov1.png" class="logo" alt="logo">
+    <div class="header">
+        <h1 class="title">ZeroCrackz</h1>
+        <p class="desc">Best cracks community and best cracks</p>
+        <a href="download" class="btn">Get cracks</a>
+    </div>
+    <div class="clients">
+        <div class="client">
+            <img src="https://static3.tgstat.ru/channels/_0/95/95c764fc8a82bee885375f0a353fc44a.jpg" alt="Delta image">
+            <div class="client-text">
+                <h2>Delta client</h2>
+                <p>Cracked Delta client - best PVE and PVP client for funtime</p>
+            </div>
+        </div>
+        <div class="client">
+            <img src="https://sun9-64.userapi.com/impg/cybfddt8WebTqwf_dgMaDkiOAHf8VN4ZCIRE9w/f01DAzYwDaM.jpg?size=1280x1280&quality=95&sign=bb240ab5ea1198706aa77b6d2506a950&type=album" alt="Wexside image">
+            <div class="client-text">
+                <h2>Wexside</h2>
+                <p>Best PVP Client with good bypasses and best FUNTIME killaura</p>
+            </div>
+        </div>
+        <div class="client">
+            <img src="https://cdn4.cdn-telegram.org/file/lLn0lZr4FfxypFHy64Chpv61sNhFGjlpQWiL-idCfXKi69Xk7U_cp8PY4XyFH-oyZM5sI_pv8XuRbtP-O4Q0rh30DlGimdhLUTUnIuv43jSDjPQrHH3RjQk_sL9WHxFzbS-I0dep9shRk1LS-UvVUt60qNpauTeBnnLr6qXY5bkbuBbY1FKOy8fVIK0-h9HaqzCTwxql_AJem5jZpttjwl1N3P8G7Tj_i0q2-KXD0Tw6J7IGb-iUOOCD4b9McSdstFZ-J3vjjxKNXtI7I7b57qX0cLLG_9yCQBs5CLApdyk_FbinD7HbdfN608CCBiC4TuU0Je4fx-9xKtk8uTE_fw.jpg" alt="nurik image">
+            <div class="client-text">
+                <h2>Nursultan Alpha</h2>
+                <p>The best PVP client with great visual effects and fantastic killaura</p>
+            </div>
+        </div>
+    </div>
+    <div class="advantages">
+        <div class="adv-item">
+            <span class="adv-emoji">⚡</span>
+            <div class="adv-text">
+                <h3>Fast downloading</h3>
+                <p>Fast downloads from our loaders</p>
+            </div>
+        </div>
+        <div class="adv-item">
+            <span class="adv-emoji">🛡️</span>
+            <div class="adv-text">
+                <h3>Safe</h3>
+                <p>100% secure client without any issues</p>
+            </div>
+        </div>
+        <div class="adv-item">
+            <span class="adv-emoji">🎮</span>
+            <div class="adv-text">
+                <h3>Universal</h3>
+                <p>Our loaders works in any computer</p>
+            </div>
+        </div>
+		<div class="adv-item">
+            <span class="adv-emoji">⚙️</span>
+            <div class="adv-text">
+                <h3>Updates</h3>
+                <p>these crack updating automatic from loader when gets best update</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2025 ZeroCrackz | <a href="https://t.me/ewinnery">Contact</a> | <a href="https://dsc.gg/ZeroTiss">Discord</a> | All rights reserved</p>
+    </div>
+</body>
+</html>
