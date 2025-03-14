@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZeroCrackz</title>
+    <title>ZeroCrackz - Minecraft & Roblox</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,7 +15,6 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Легкий анимированный фон */
         body::before {
             content: '';
             position: fixed;
@@ -87,6 +86,8 @@
             transition: all 0.4s ease;
             animation: bounceIn 1.5s ease forwards 0.6s;
             opacity: 0;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg); /* Начальное состояние кнопок */
         }
         .btn:hover {
             transform: scale(1.1);
@@ -110,18 +111,38 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             border-radius: 20px;
-            box-shadow: 0 0 25px rgba(80, 80, 80, 0.3);
+            box-shadow: 0 6px 15px rgba(80, 80, 80, 0.3);
             transform-style: preserve-3d;
-            transition: transform 0.4s ease;
-            animation: slideIn 1s ease forwards;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg); /* Начальное состояние */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: appear 1s ease forwards;
+            overflow: hidden;
         }
         .client:nth-child(1) { animation-delay: 0.2s; }
         .client:nth-child(2) { animation-delay: 0.4s; }
         .client:nth-child(3) { animation-delay: 0.6s; }
         .client:nth-child(4) { animation-delay: 0.8s; }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-150px); }
-            to { opacity: 1; transform: translateX(0); }
+        @keyframes appear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .client:hover {
+            box-shadow: 0 10px 25px rgba(95, 95, 95, 0.6);
+        }
+        .client::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        .client:hover::before {
+            opacity: 1;
         }
         .client img {
             width: 200px;
@@ -203,39 +224,40 @@
     <div class="header">
         <div class="container">
             <h1>ZeroCrackz</h1>
-            <p>Best crackz and cheats here</p>
+            <p>Best cracks and Cheat clients</p>
             <a href="roblox" class="btn">Roblox Execs</a>
             <a href="minecraft" class="btn">Minecraft Clients</a>
         </div>
     </div>
     <div class="clients">
         <div class="container">
+		<p>Our cracks and cheats:</p>
             <div class="client">
                 <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/delta.jpg" alt="Delta">
                 <div class="client-text">
                     <h2>Delta</h2>
-                    <p>Best PVE\PVP Client for funtime</p>
+                    <p>Cracked Delta client - best PVE and PVP client for funtime</p>
                 </div>
             </div>
             <div class="client">
                 <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/wexsede.jpg" alt="Wexside">
                 <div class="client-text">
                     <h2>Wexside</h2>
-                    <p>Good PVP Client for many servers</p>
+                    <p>Best PVP Client with good bypasses and best FUNTIME killaura</p>
                 </div>
             </div>
             <div class="client">
                 <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/nurik.png" alt="Nurik">
                 <div class="client-text">
-                    <h2>Nursultan alpha</h2>
-                    <p>PVP Client with beautiful visuals and functions</p>
+                    <h2>Nurik</h2>
+                    <p>The best PVP client with great visual effects and fantastic killaura</p>
                 </div>
             </div>
             <div class="client">
                 <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/xeno.png" alt="Xeno">
                 <div class="client-text">
                     <h2>Xeno</h2>
-                    <p>Roblox executor without any keysystem!</p>
+                    <p>Free executor without keysystem</p>
                 </div>
             </div>
         </div>
@@ -245,32 +267,32 @@
             <div class="advantages-grid">
                 <div class="adv-item">
                     <span>⚡</span>
-                    <h3>Fast load</h3>
-                    <p>fast load from our servers</p>
+                    <h3>Быстрая загрузка</h3>
+                    <p>Мгновенные загрузки с наших серверов</p>
                 </div>
                 <div class="adv-item">
                     <span>🛡️</span>
-                    <h3>Security</h3>
-                    <p>100% best cracks and cheats</p>
+                    <h3>Безопасность</h3>
+                    <p>100% надежные клиенты</p>
                 </div>
                 <div class="adv-item">
                     <span>🎮</span>
-                    <h3>Supports</h3>
-                    <p>Loaders\Files working in every windows version</p>
+                    <h3>Универсальность</h3>
+                    <p>Работает на любом ПК</p>
                 </div>
                 <div class="adv-item">
                     <span>⚙️</span>
-                    <h3>Updates</h3>
-                    <p>fast updates in loaders</p>
+                    <h3>Обновления</h3>
+                    <p>Автоматические апдейты</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="footer">
-        <p>© 2025 ZeroCrackz | <a href="https://t.me/ewinnery">Contact</a> | <a href="https://dsc.gg/ZeroTiss">Discord</a></p>
+        <p>© 2025 ZeroCrackz | <a href="https://t.me/ewinnery">Контакты</a> | <a href="https://dsc.gg/ZeroTiss">Discord</a></p>
     </div>
     <script>
-        // 3D-эффект для карточек клиентов
+        // 3D-эффект для карточек клиентов (.client)
         document.querySelectorAll('.client').forEach(client => {
             client.addEventListener('mousemove', (e) => {
                 const rect = client.getBoundingClientRect();
@@ -278,12 +300,29 @@
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                client.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                const rotateX = (y - centerY) / 50; // Чувствительность поворота для карточек
+                const rotateY = (centerX - x) / 50;
+                client.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
             });
             client.addEventListener('mouseleave', () => {
-                client.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                client.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+        });
+
+        // Лёгкий 3D-эффект для кнопок в главном меню (.btn)
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 5; // Меньшая чувствительность для кнопок
+                const rotateY = (centerX - x) / 5;
+                btn.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
             });
         });
     </script>
