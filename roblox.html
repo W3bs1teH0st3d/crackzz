@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZeroCrackz - Download</title>
+    <title>ZeroCrackz - Roblox</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,7 +15,6 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Анимированный фон */
         body::before {
             content: '';
             position: fixed;
@@ -49,7 +48,7 @@
         }
         .logo:hover { transform: rotate(360deg); }
         .downloadpage {
-            padding: 100px 0;
+            padding: 80px 0;
             text-align: center;
             min-height: 100vh;
             background: #232323;
@@ -58,50 +57,53 @@
             position: fixed;
             top: 20px;
             left: 120px;
-            padding: 12px 30px;
+            padding: 10px 25px;
             background: linear-gradient(135deg, #707070, #404040);
             color: #fff;
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 18px;
-            box-shadow: 0 0 15px rgba(100, 100, 100, 0.6);
+            border-radius: 20px;
+            font-size: 16px;
+            box-shadow: 0 0 12px rgba(100, 100, 100, 0.6);
             transition: all 0.3s ease;
             z-index: 10;
         }
         .backbtn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(64, 64, 64, 0.9);
+            box-shadow: 0 0 20px rgba(64, 64, 64, 0.9);
         }
         .dltitle {
-            font-size: 70px;
+            font-size: 50px;
             background: linear-gradient(135deg, #b0b0b0, #606060);
             -webkit-background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(100, 100, 100, 0.6);
-            margin-bottom: 60px;
-            animation: fadeIn 1.2s ease forwards;
+            text-shadow: 0 0 15px rgba(100, 100, 100, 0.6);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .clients-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             padding: 0 20px;
         }
         .dlclient {
-            padding: 25px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(15px);
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(60, 60, 60, 0.4);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(60, 60, 60, 0.4);
             transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg); /* Начальное состояние */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: slideUp 0.8s ease forwards;
             position: relative;
             overflow: hidden;
+            opacity: 0; /* Для анимации появления */
+            animation: appear 0.8s ease forwards;
         }
         .dlclient:nth-child(1) { animation-delay: 0.2s; }
         .dlclient:nth-child(2) { animation-delay: 0.3s; }
@@ -109,9 +111,12 @@
         .dlclient:nth-child(4) { animation-delay: 0.5s; }
         .dlclient:nth-child(5) { animation-delay: 0.6s; }
         .dlclient:nth-child(6) { animation-delay: 0.7s; }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes appear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .dlclient:hover {
+            box-shadow: 0 10px 25px rgba(64, 64, 64, 0.7);
         }
         .dlclient::before {
             content: '';
@@ -128,53 +133,47 @@
         .dlclient:hover::before {
             opacity: 1;
         }
-        .dlclient:hover {
-            box-shadow: 0 12px 30px rgba(64, 64, 64, 0.7);
-        }
         .dlclient img {
             width: 100%;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            transform: translateZ(20px);
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
         .dlclient h2 {
-            font-size: 28px;
+            font-size: 22px;
             background: linear-gradient(135deg, #b0b0b0, #606060);
             -webkit-background-clip: text;
             color: transparent;
-            text-shadow: 0 0 12px rgba(100, 100, 100, 0.5);
-            margin: 0 0 15px;
-            transform: translateZ(15px);
+            text-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
+            margin: 0 0 10px;
         }
         .dlclient p {
-            font-size: 16px;
+            font-size: 14px;
             color: #b0b0b0;
-            margin: 0 0 20px;
-            transform: translateZ(10px);
+            margin: 0 0 15px;
         }
         .dlbtn {
             display: block;
-            padding: 14px;
+            padding: 10px;
             background: linear-gradient(135deg, #707070, #404040);
             color: #fff;
             text-decoration: none;
-            border-radius: 30px;
-            box-shadow: 0 0 15px rgba(100, 100, 100, 0.6);
+            border-radius: 20px;
+            font-size: 14px;
+            box-shadow: 0 0 12px rgba(100, 100, 100, 0.6);
             transition: all 0.3s ease;
-            transform: translateZ(15px);
         }
         .dlbtn:hover {
-            transform: scale(1.05) translateZ(15px);
-            box-shadow: 0 0 25px rgba(64, 64, 64, 0.9);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(64, 64, 64, 0.9);
         }
         .footer {
-            padding: 40px;
+            padding: 30px;
             text-align: center;
             background: #181818;
             border-top: 1px solid rgba(60, 60, 60, 0.3);
         }
         .footer p {
-            font-size: 16px;
+            font-size: 14px;
             color: #909090;
             margin: 0;
         }
@@ -185,7 +184,7 @@
         }
         .footer a:hover {
             color: #606060;
-            text-shadow: 0 0 12px rgba(64, 64, 64, 0.7);
+            text-shadow: 0 0 10px rgba(64, 64, 64, 0.7);
         }
     </style>
 </head>
@@ -194,7 +193,7 @@
     <div class="downloadpage">
         <div class="container">
             <a href="/" class="backbtn">Back</a>
-            <h1 class="dltitle">Get Your Crack</h1>
+            <h1 class="dltitle">Roblox Cracks</h1>
             <div class="clients-grid">
                 <div class="dlclient">
                     <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/l0ge.png" alt="ZeroTiss">
@@ -212,25 +211,25 @@
                     <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/kin.png" alt="Kinetic">
                     <h2>Kinetic</h2>
                     <p>Good external cheat and medium well exploit!</p>
-                    <a href="https://github.com/W3bs1teH0st3d/crackzz/blob/main/ui.exe" class="dlbtn" download>Download</a>
+                    <a href="https://clck.ru/3HXR8a" class="dlbtn" download>Download</a>
                 </div>
                 <div class="dlclient">
                     <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/xeno.png" alt="Xeno">
                     <h2>Xeno</h2>
                     <p>Good executor without ads\keysystem and medium UNC</p>
-                    <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/xeno.zip" class="dlbtn" download>Download</a>
+                    <a href="https://clck.ru/3HXR9J" class="dlbtn" download>Download</a>
                 </div>
                 <div class="dlclient">
                     <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/solara.png" alt="Solara">
                     <h2>Solara</h2>
                     <p>Best FREE executor without keysystem and fast updates</p>
-                    <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/SolaraBootstrapper.exe" class="dlbtn" download>Download</a>
+                    <a href="https://clck.ru/3HXRAa" class="dlbtn" download>Download</a>
                 </div>
                 <div class="dlclient">
                     <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/subz.png" alt="Subzero">
                     <h2>Subzero</h2>
                     <p>New executor from Fluxus\Fluxteam devs, good at game</p>
-                    <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/subzeroBootster.exe" class="dlbtn" download>Download</a>
+                    <a href="https://clck.ru/3HXRCr" class="dlbtn" download>Download</a>
                 </div>
             </div>
         </div>
@@ -239,7 +238,7 @@
         <p>© 2025 ZeroCrackz | <a href="https://t.me/ewinnery">Contact</a> | <a href="https://dsc.gg/ZeroTiss">Discord</a></p>
     </div>
     <script>
-        // Улучшенный 3D-эффект для карточек клиентов
+        // Улучшенный 3D-эффект для всей карточки
         document.querySelectorAll('.dlclient').forEach(client => {
             client.addEventListener('mousemove', (e) => {
                 const rect = client.getBoundingClientRect();
@@ -247,8 +246,8 @@
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 10; // Увеличенный наклон
-                const rotateY = (centerX - x) / 10;
+                const rotateX = (y - centerY) / 8; // Чувствительность поворота
+                const rotateY = (centerX - x) / 8;
                 client.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
             });
             client.addEventListener('mouseleave', () => {
