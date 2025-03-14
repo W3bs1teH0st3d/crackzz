@@ -4,200 +4,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroCrackz - Download</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            margin: 0;
-            padding: 0;
             font-family: 'Orbitron', sans-serif;
-            background: #080808;
-            color: #f0f0f0;
+            background: #1c1c1c;
+            color: #d8d8d8;
+            line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
-        .logo {
+        /* Анимированный фон */
+        body::before {
+            content: '';
             position: fixed;
-            top: 25px;
-            left: 25px;
-            width: 150px;
-            z-index: 15;
-            filter: drop-shadow(0 0 15px rgba(155, 89, 182, 0.8));
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(40, 40, 40, 0.2), rgba(20, 20, 20, 0.1));
+            animation: subtleWave 15s infinite ease-in-out;
+            z-index: -1;
+            opacity: 0.6;
         }
+        @keyframes subtleWave {
+            0% { transform: translate(-5%, -5%) scale(1.02); }
+            50% { transform: translate(5%, 5%) scale(1); }
+            100% { transform: translate(-5%, -5%) scale(1.02); }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            width: 80px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            filter: drop-shadow(0 0 12px rgba(100, 100, 100, 0.7));
+            transition: transform 0.5s;
+            z-index: 15;
+        }
+        .logo:hover { transform: rotate(360deg); }
         .downloadpage {
-            padding: 120px 70px;
+            padding: 100px 0;
             text-align: center;
-            background: rgba(12, 12, 12, 0.95);
             min-height: 100vh;
+            background: #232323;
+        }
+        .backbtn {
+            position: fixed;
+            top: 20px;
+            left: 120px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #707070, #404040);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 18px;
+            box-shadow: 0 0 15px rgba(100, 100, 100, 0.6);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .backbtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(64, 64, 64, 0.9);
+        }
+        .dltitle {
+            font-size: 70px;
+            background: linear-gradient(135deg, #b0b0b0, #606060);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(100, 100, 100, 0.6);
+            margin-bottom: 60px;
+            animation: fadeIn 1.2s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+        .dlclient {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(60, 60, 60, 0.4);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.8s ease forwards;
             position: relative;
             overflow: hidden;
         }
-        .downloadpage::before {
+        .dlclient:nth-child(1) { animation-delay: 0.2s; }
+        .dlclient:nth-child(2) { animation-delay: 0.3s; }
+        .dlclient:nth-child(3) { animation-delay: 0.4s; }
+        .dlclient:nth-child(4) { animation-delay: 0.5s; }
+        .dlclient:nth-child(5) { animation-delay: 0.6s; }
+        .dlclient:nth-child(6) { animation-delay: 0.7s; }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dlclient::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(155, 89, 182, 0.2), transparent 50%);
-            animation: glow 5s infinite ease-in-out;
-        }
-        @keyframes glow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-        }
-        .backbtn {
-            position: fixed;
-            top: 25px;
-            left: 200px;
-            padding: 14px 35px;
-            background: linear-gradient(135deg, #8e44ad, #1abc9c);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 35px;
-            font-size: 20px;
-            box-shadow: 0 0 25px rgba(155, 89, 182, 0.7);
-            transition: all 0.4s ease;
-            z-index: 10;
-        }
-        .backbtn:hover {
-            box-shadow: 0 0 35px rgba(26, 188, 156, 0.9);
-            transform: translateY(-5px);
-        }
-        .dltitle {
-            font-size: 80px;
-            background: linear-gradient(135deg, #8e44ad, #1abc9c);
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 30px rgba(155, 89, 182, 0.9);
-            margin-bottom: 70px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
             opacity: 0;
-            animation: slideUp 1.2s ease forwards;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(70px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .dlclient {
-            display: inline-block;
-            width: 360px;
-            margin: 30px;
-            padding: 35px;
-            background: rgba(155, 89, 182, 0.05);
-            border-radius: 25px;
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
-            transition: all 0.4s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        .dlclient:nth-child(1) { animation-delay: 0.2s; }
-        .dlclient:nth-child(2) { animation-delay: 0.4s; }
-        .dlclient:nth-child(3) { animation-delay: 0.6s; }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        .dlclient:hover::before {
+            opacity: 1;
         }
         .dlclient:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 40px rgba(26, 188, 156, 0.7);
+            box-shadow: 0 12px 30px rgba(64, 64, 64, 0.7);
         }
         .dlclient img {
             width: 100%;
-            border-radius: 20px;
+            border-radius: 15px;
             margin-bottom: 20px;
+            transform: translateZ(20px);
         }
         .dlclient h2 {
-            font-size: 30px;
-            margin: 0 0 15px;
-            color: #f0f0f0;
-            background: linear-gradient(135deg, #8e44ad, #1abc9c);
+            font-size: 28px;
+            background: linear-gradient(135deg, #b0b0b0, #606060);
             -webkit-background-clip: text;
             color: transparent;
-        }
-		.footer {
-            padding: 50px 70px;
-            background: rgba(10, 10, 10, 0.95);
-            text-align: center;
-            border-top: 1px solid rgba(155, 89, 182, 0.3);
-        }
-        .footer p {
-            font-size: 16px;
-            color: #a0a0a0;
-            margin: 0;
-        }
-        .footer a {
-            color: #1abc9c;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .footer a:hover {
-            color: #8e44ad;
-            text-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+            text-shadow: 0 0 12px rgba(100, 100, 100, 0.5);
+            margin: 0 0 15px;
+            transform: translateZ(15px);
         }
         .dlclient p {
-            font-size: 18px;
-            color: #c0c0c0;
-            margin: 0 0 25px;
-            line-height: 1.5;
+            font-size: 16px;
+            color: #b0b0b0;
+            margin: 0 0 20px;
+            transform: translateZ(10px);
         }
         .dlbtn {
             display: block;
-            padding: 16px;
-            background: linear-gradient(135deg, #8e44ad, #1abc9c);
+            padding: 14px;
+            background: linear-gradient(135deg, #707070, #404040);
             color: #fff;
             text-decoration: none;
-            border-radius: 35px;
-            box-shadow: 0 0 25px rgba(155, 89, 182, 0.7);
-            transition: all 0.4s ease;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(100, 100, 100, 0.6);
+            transition: all 0.3s ease;
+            transform: translateZ(15px);
         }
         .dlbtn:hover {
-            box-shadow: 0 0 35px rgba(26, 188, 156, 0.9);
-            transform: scale(1.05);
+            transform: scale(1.05) translateZ(15px);
+            box-shadow: 0 0 25px rgba(64, 64, 64, 0.9);
+        }
+        .footer {
+            padding: 40px;
+            text-align: center;
+            background: #181818;
+            border-top: 1px solid rgba(60, 60, 60, 0.3);
+        }
+        .footer p {
+            font-size: 16px;
+            color: #909090;
+            margin: 0;
+        }
+        .footer a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer a:hover {
+            color: #606060;
+            text-shadow: 0 0 12px rgba(64, 64, 64, 0.7);
         }
     </style>
 </head>
 <body>
     <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/ZeroTiss/refs/heads/main/logov1.png" class="logo" alt="logo">
     <div class="downloadpage">
-        <a href="/" class="backbtn">Back</a>
-        <h1 class="dltitle">Get Your Crack</h1>
-        <div class="dlclient">
-            <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/l0ge.png" alt="zero">
-            <h2>ZeroTiss loader</h2>
-            <p>Best executor loader for roblox!</p>
-            <a href="https://www.dropbox.com/scl/fi/7jluohdufbq9hjtznqy6c/ZeroTiss.exe?rlkey=ky3xn91ifcsbq02tf3n4bd21o&st=phh3zlwv&dl=1" class="dlbtn" download>Download</a>
-        </div>
-        <div class="dlclient">
-            <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/awepe.png" alt="awepe">
-            <h2>AWP.GG Cracked</h2>
-            <p>Best executor with high UNC and sUNC for roblox!</p>
-            <a href="https://clck.ru/3HVrAX" class="dlbtn" download>Download</a>
-        </div>
-        <div class="dlclient">
-            <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/kin.png" alt="kinet">
-            <h2>Kinetic</h2>
-            <p>Good external cheat and medium well exploit!</p>
-            <a href="https://github.com/W3bs1teH0st3d/crackzz/blob/main/ui.exe" class="dlbtn" download>Download</a>
-        </div>
-	<div class="dlclient">
-            <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/xeno.png" alt="xeno">
-            <h2>Xeno</h2>
-            <p>Good executor without ads\keysystem and medium UNC</p>
-            <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/xeno.zip" class="dlbtn" download>Download</a>
-        </div>
-	<div class="dlclient">
-            <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/solara.png" alt="solar">
-            <h2>Solara</h2>
-            <p>Best FREE executor without keysystem and fast updates</p>
-            <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/SolaraBootstrapper.exe" class="dlbtn" download>Download</a>
-        </div>
-	<div class="dlclient">
-            <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/subz.png" alt="sabzir">
-            <h2>Subzero</h2>
-            <p>New executor from fluxus\fluxteam devs and coders, good at game</p>
-            <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/subzeroBootster.exe" class="dlbtn" download>Download</a>
+        <div class="container">
+            <a href="/" class="backbtn">Back</a>
+            <h1 class="dltitle">Get Your Crack</h1>
+            <div class="clients-grid">
+                <div class="dlclient">
+                    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/l0ge.png" alt="ZeroTiss">
+                    <h2>ZeroTiss Loader</h2>
+                    <p>Best executor loader for Roblox!</p>
+                    <a href="https://www.dropbox.com/scl/fi/7jluohdufbq9hjtznqy6c/ZeroTiss.exe?rlkey=ky3xn91ifcsbq02tf3n4bd21o&st=phh3zlwv&dl=1" class="dlbtn" download>Download</a>
+                </div>
+                <div class="dlclient">
+                    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/awepe.png" alt="AWP.GG">
+                    <h2>AWP.GG Cracked</h2>
+                    <p>Best executor with high UNC and sUNC for Roblox!</p>
+                    <a href="https://clck.ru/3HVrAX" class="dlbtn" download>Download</a>
+                </div>
+                <div class="dlclient">
+                    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/valkUI/refs/heads/main/kin.png" alt="Kinetic">
+                    <h2>Kinetic</h2>
+                    <p>Good external cheat and medium well exploit!</p>
+                    <a href="https://github.com/W3bs1teH0st3d/crackzz/blob/main/ui.exe" class="dlbtn" download>Download</a>
+                </div>
+                <div class="dlclient">
+                    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/xeno.png" alt="Xeno">
+                    <h2>Xeno</h2>
+                    <p>Good executor without ads\keysystem and medium UNC</p>
+                    <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/xeno.zip" class="dlbtn" download>Download</a>
+                </div>
+                <div class="dlclient">
+                    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/solara.png" alt="Solara">
+                    <h2>Solara</h2>
+                    <p>Best FREE executor without keysystem and fast updates</p>
+                    <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/SolaraBootstrapper.exe" class="dlbtn" download>Download</a>
+                </div>
+                <div class="dlclient">
+                    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/subz.png" alt="Subzero">
+                    <h2>Subzero</h2>
+                    <p>New executor from Fluxus\Fluxteam devs, good at game</p>
+                    <a href="https://github.com/W3bs1teH0st3d/crackzz/raw/refs/heads/main/subzeroBootster.exe" class="dlbtn" download>Download</a>
+                </div>
+            </div>
         </div>
     </div>
-	    <div class="footer">
-        <p>© 2025 ZeroCrackz | <a href="https://t.me/ewinnery">Contact</a> | <a href="https://dsc.gg/ZeroTiss">Discord</a> | All rights reserved</p>
+    <div class="footer">
+        <p>© 2025 ZeroCrackz | <a href="https://t.me/ewinnery">Contact</a> | <a href="https://dsc.gg/ZeroTiss">Discord</a></p>
     </div>
+    <script>
+        // Улучшенный 3D-эффект для карточек клиентов
+        document.querySelectorAll('.dlclient').forEach(client => {
+            client.addEventListener('mousemove', (e) => {
+                const rect = client.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10; // Увеличенный наклон
+                const rotateY = (centerX - x) / 10;
+                client.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+            client.addEventListener('mouseleave', () => {
+                client.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+        });
+    </script>
 </body>
 </html>
