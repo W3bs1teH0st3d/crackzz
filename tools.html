@@ -229,8 +229,8 @@
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 5; // Чувствительность поворота
-                const rotateY = (centerX - x) / 5;
+                const rotateX = (y - centerY) / 14; // Чувствительность поворота
+                const rotateY = (centerX - x) / 14;
                 client.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
             });
             client.addEventListener('mouseleave', () => {
