@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroCrackz - Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #1c1c1c;
+            color: #d8d8d8;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(40, 40, 40, 0.2), rgba(20, 20, 20, 0.1));
+            animation: subtleWave 15s infinite ease-in-out;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        @keyframes subtleWave {
+            0% { transform: translate(-5%, -5%) scale(1.02); }
+            50% { transform: translate(5%, 5%) scale(1); }
+            100% { transform: translate(-5%, -5%) scale(1.02); }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            width: 80px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            filter: drop-shadow(0 0 12px rgba(100, 100, 100, 0.7));
+            transition: transform 0.5s;
+            z-index: 15;
+        }
+        .logo:hover { transform: rotate(360deg); }
+        .downloadpage {
+            padding: 80px 0;
+            text-align: center;
+            min-height: 100vh;
+            background: #232323;
+        }
+        .backbtn {
+            position: fixed;
+            top: 20px;
+            left: 120px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #707070, #404040);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 16px;
+            box-shadow: 0 0 12px rgba(100, 100, 100, 0.6);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .backbtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(64, 64, 64, 0.9);
+        }
+        .dltitle {
+            font-size: 50px;
+            background: linear-gradient(135deg, #b0b0b0, #606060);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(100, 100, 100, 0.6);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        .dltext {
+            font-size: 20px;
+            background: linear-gradient(135deg, #b0b0b0, #606060);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(100, 100, 100, 0.6);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .dlclient {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(60, 60, 60, 0.4);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg); /* Начальное состояние */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0; /* Для анимации появления */
+            animation: appear 0.8s ease forwards;
+        }
+        .dlclient:nth-child(1) { animation-delay: 0.2s; }
+        .dlclient:nth-child(2) { animation-delay: 0.3s; }
+        .dlclient:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes appear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .dlclient:hover {
+            box-shadow: 0 10px 25px rgba(64, 64, 64, 0.7);
+        }
+        .dlclient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        .dlclient:hover::before {
+            opacity: 1;
+        }
+        .dlclient img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .dlclient h2 {
+            font-size: 22px;
+            background: linear-gradient(135deg, #b0b0b0, #606060);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
+            margin: 0 0 10px;
+        }
+        .dlclient p {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin: 0 0 15px;
+        }
+        .dlbtn {
+            display: block;
+            padding: 10px;
+            background: linear-gradient(135deg, #707070, #404040);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+            box-shadow: 0 0 12px rgba(100, 100, 100, 0.6);
+            transition: all 0.3s ease;
+        }
+        .dlbtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(64, 64, 64, 0.9);
+        }
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background: #181818;
+            border-top: 1px solid rgba(60, 60, 60, 0.3);
+        }
+        .footer p {
+            font-size: 14px;
+            color: #909090;
+            margin: 0;
+        }
+        .footer a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer a:hover {
+            color: #606060;
+            text-shadow: 0 0 10px rgba(64, 64, 64, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/ZeroTiss/refs/heads/main/logov1.png" class="logo" alt="logo">
+    <div class="downloadpage">
+        <div class="container">
+            <a href="/" class="backbtn">Back</a>
+            <h1 class="dltitle">Useful Tools</h1>
+            <div class="clients-grid">
+                <div class="dlclient">
+                    <img src="https://raw.githubusercontent.com/W3bs1teH0st3d/crackzz/refs/heads/main/image.png" alt="Delta">
+                    <h2>ZeroRaider</h2>
+                    <p>Good Discord Raid tool with multy formatting tokens + fast spam \ vc joining and other!</p>
+                    <a href="#" class="dlbtn" download>Download</a>
+                </div>
+                <div class="dlclient">
+                    <img src="github.com/W3bs1teH0st3d/crackzz/blob/main/изображение_2025-03-16_000915379.png?raw=true" alt="Nurik">
+                    <h2>ZeroR4T</h2>
+                    <p>Simple rat for simple control PC in distant [NOT FOR MALWARE, ONLY SELF USE]</p>
+                    <a href="#" class="dlbtn" download>Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2025 ZeroCrackz | <a href="https://t.me/ewinnery">Contact</a> | <a href="https://dsc.gg/ZeroTiss">Discord</a></p>
+    </div>
+    <script>
+        // Улучшенный 3D-эффект для всей карточки
+        document.querySelectorAll('.dlclient').forEach(client => {
+            client.addEventListener('mousemove', (e) => {
+                const rect = client.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 8; // Чувствительность поворота
+                const rotateY = (centerX - x) / 8;
+                client.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+            client.addEventListener('mouseleave', () => {
+                client.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+        });
+    </script>
+</body>
+</html>
